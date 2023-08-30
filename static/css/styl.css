@@ -1,0 +1,237 @@
+body {
+    display: block;
+    justify-content: center;
+    align-items: normal;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    background: linear-gradient(to bottom, #73a9e4, #086999, #030b11);
+}
+
+.cell {
+    width: 90px;
+    height: 35px;
+    color: #574c29;
+    text-align: center;
+    line-height: 35px;
+    cursor: pointer;
+    margin: 30px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(to bottom, #b37f0a, #ffe78b);
+    font-family: 'lyhari', Georgia, 'Times New Roman', Times, serif;
+    font-size: 180%;
+    border: 2px solid #c0a000;
+}
+
+.choices {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    
+}
+
+.choice {
+    margin: 10px;
+    height: 100px;
+    width: 80%;
+    padding-top: 50px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-left: 80px;
+    
+}
+
+.cell-container {
+    display: flex;
+    justify-content: center;
+    align-items: normal;
+    margin: 3%;
+    gap: 20%;
+}
+
+
+
+/* Выделение при выборе */
+.choice-input:checked + .choice-text {
+    font-weight: bold; /* Изменение жирности текста */
+}
+
+.choice-input:checked + .custom-choice {
+    background-color: #3498db; /* Изменение цвета фона */
+    border-color: #2980b9; /* Изменение цвета границы */
+    color: #fff; /* Изменение цвета текста */
+}
+
+/* Стили при наведении */
+.custom-choice:hover {
+    background-color: #ddd;
+    border-color: #aaa;
+}
+
+.custom-choice:hover .choice-text {
+    font-weight: normal;
+}
+
+.custom-choice {
+    display: block;
+    background-color: #f0f0f0;
+    border: 2px solid #ccc;
+    border-radius: 35px;
+    padding: 2%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 1%;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s; /* Плавное изменение цвета */
+}
+
+.choice-input {
+    display: none; /* Скрываем оригинальный input */
+}
+
+.choice-text {
+    font-size: 24px;
+}
+
+.custom-input {
+    display: none; /* Скрываем ввод по умолчанию */
+    width: 100%;
+    margin-top: 7px;
+    padding: 6px;
+}
+
+.choice-input:checked + .choice-text {
+    font-weight: bold; /* Изменение жирности текста */
+    color: #94650d;
+}
+
+
+.custom-choice:hover .custom-input {
+    display: inline-block; /* Отображаем ввод при наведении */
+}
+
+.button {
+    width: 70px;
+    height: 30px;
+    background-color: #a77406;
+    color: #91560a;
+    text-align: start;
+    line-height: 20px;
+    cursor: pointer;
+    margin: 5px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    font-family: 'lyhari', Georgia, 'Times New Roman', Times, serif;
+    font-size: 220%;
+    border-color: #d7b852;
+    background: linear-gradient(to bottom, #b37f0a, #ffe78b);
+}
+
+.button-container {
+    display: flex; /* Применяет flex-контейнер */
+    justify-content: flex-end;
+     /* Выравнивание содержимого контейнера слева */
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+
+.container {
+    position: relative;
+    height: 100%;
+    text-align: center;
+}
+
+
+.background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.overlay-image {
+    max-width: 100px;
+    margin-bottom: 10px; /* Отступ между изображением и текстом */
+}
+
+.glavtext {
+    text-align: center;
+    font-size: 60px;
+    margin: 0%;
+    font-family: 'lyhari', Georgia, 'Times New Roman', Times, serif;
+    background: linear-gradient(to bottom, #53440f, #b9a71a); /* Градиент золотого цвета */
+    -webkit-background-clip: text; /* Применение градиента к тексту (WebKit) */
+    background-clip: text; /* Применение градиента к тексту */
+    color: transparent; /* Сделать текст невидимым */
+}
+
+.container_for_logo {
+    width: 100%;
+    height: 100%;
+    color: rgb(199 149 30);
+
+}
+
+@font-face {
+    font-family: 'lyhari';
+    src: url('/static/fonts/adana-script.ttf') format('truetype'); /* Путь к файлу TTF */
+    /* Дополнительные директивы, такие как font-weight и font-style, если необходимо */
+}
+
+
+
+@media (max-width: 414px) {
+    /* Примеры стилей для маленьких экранов */
+    form {
+        display: flex;
+        flex-flow: wrap;
+        pointer-events: auto;
+        flex-wrap: wrap;
+        margin: -46px;
+        width: 300px;
+    }
+    /* Изменение размера текста */
+    body {
+        font-size: 14px;
+    }
+    
+    /* Адаптивный макет с использованием Flexbox */
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* Скрытие меню на маленьких экранах */
+    .menu {
+        display: none;
+    }
+    
+    /* Адаптивные изображения */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}

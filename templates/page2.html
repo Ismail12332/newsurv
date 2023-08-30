@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style2.css">
+    <link href="{{ url_for('static', filename='fonts/adana-script.ttf') }}" rel="stylesheet" type="text/css" />
+    <title>Survzilla</title>
+    <style>
+        
+    </style>
+</head>
+
+<body>
+    <div class="container_for_logo">
+        <div class="containers">
+            <img src="{{ url_for('static', filename='FerrettiYachts_780New_Cruising-0013_26458.jpg') }}" alt="Background Image" class="background-image">
+                <div class="overlay">
+                <img class="overlay-image" src="{{ url_for('static', filename='logo.png') }}" alt="Overlay Image">
+        <h1 class="glavtext">Services that we offer, you can choose from the available ones or write your wishes.</h1>
+    </div>
+    <form method="POST" action="/page2">
+        <div class="cell-container">
+            <div class="cell " onclick="toggleColorAndShowChoices(this, 1)">Food</div>
+            <div class="cell" onclick="toggleColorAndShowChoices(this, 2)">Water</div>
+            <div class="cell" onclick="toggleColorAndShowChoices(this, 3)">Something</div>
+        </div>
+        <div id="choices1" class="choices" style="display: none;">
+            <label class="custom-choice">
+                <input class="choice-input" type="radio" name="selected_choice_1" value="Luxury Collection">
+                <div class="choice-text"><strong>Luxury Collection:</strong> Experience the epitome of gastronomic excellence with 
+                    our Luxury Collection. Each dish is meticulously designed by our master chefs to ignite your taste
+                    buds and elevate your dining to unprecedented heights.</div>
+            </label>
+            <label class="custom-choice">
+                <input class="choice-input" type="radio" name="selected_choice_1" value="Comfort Classics">
+                <div class="choice-text"><strong>Comfort Classics:</strong>For those moments when nostalgia beckons and simplicity
+                    comforts, our Comfort Classics collection is your haven. Relish in the familiarity of dishes that warm the heart
+                    and soothe the soul. Made with the same dedication to quality, these dishes bring a touch of familiarity to your table.</div>
+            </label>
+            <label class="custom-choice">
+                <input class="choice-input" type="radio" name="selected_choice_1" >
+                <div class="choice-text"><strong>Offer something of your own</strong></div>
+                <input class="custom-input" type="text" name="custom_choice_1" placeholder="Введите свой вариант">
+            </label> 
+        </div>
+    
+        <div id="choices2" class="choices" style="display: none;">
+            <label class="custom-choice">
+                <input class="choice-input" type="radio" name="selected_choice_2" value="Standard">
+                <div class="choice-text"><strong>Standard:</strong> personnel it includes the captain and his 2 assistants</div>
+            </label>
+            <label class="custom-choice">
+                <input class="choice-input" type="radio" name="selected_choice_2" value="Safe">
+                <div class="choice-text"><strong>Safe: </strong>personnel it includes the captain 2 of his assistants and security</div>
+            </label>
+            <label class="custom-choice">
+                <input class="choice-input" type="radio" name="selected_choice_2" >
+                <div class="choice-text"><strong>Offer something of your own</strong></div>
+                <input class="custom-input" type="text" name="custom_choice_2" placeholder="Введите свой вариант">
+            </label> 
+        </div>
+    
+        <div id="choices3" class="choices" style="display: none;">
+            <label class="custom-choice">
+                <input class="choice-input" type="radio" name="selected_choice_3" value="Snorkel">
+                <div class="choice-text"><strong>Snorkel:</strong> sets for 4 people</div>
+            </label>
+            <label class="custom-choice">
+                <input class="choice-input" type="radio" name="selected_choice_3" value="Diving">
+                <div class="choice-text"><strong>Diving:</strong> full set of equipment for 2 people</div>
+            </label>
+            <label class="custom-choice">
+                <input class="choice-input" type="radio" name="selected_choice_3" >
+                <div class="choice-text"><strong>Offer something of your own</strong></div>
+                <input class="custom-input" type="text" name="custom_choice_3" placeholder="Введите свой вариант">
+            </label> 
+        </div>
+        <div class="button-container"><button class="button" type="submit" >Send</button></div>
+    </form>
+    
+    <script>
+        let activeCell = null;
+
+        function toggleColorAndShowChoices(element, cellNumber) {
+            if (activeCell !== null && activeCell !== element) {
+                activeCell.classList.remove("active");
+            }
+
+            element.classList.toggle("active");
+            activeCell = element;
+            
+            var allChoices = document.querySelectorAll('.choices');
+            allChoices.forEach(function(choices) {
+                choices.style.display = 'none';
+            });
+
+            var selectedChoices = document.getElementById('choices' + cellNumber);
+            if (selectedChoices) {
+                selectedChoices.style.display = 'block';
+            }
+        }
+        
+    </script>
+    
+</body>
+
+</html>
